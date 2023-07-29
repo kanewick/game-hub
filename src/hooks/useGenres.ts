@@ -1,3 +1,4 @@
+import genres from "../data/genres";
 import useData from "./useData";
 
 export interface Genre {
@@ -6,6 +7,9 @@ export interface Genre {
   image_background: string;
 }
 
-const useGenres = () => useData<Genre>("/genres");
+// Data mostly static so left retrieval from saved data
+const useGenres = () => ({ data: genres, isLoading: false, error: null });
+// Retrieve from server using below
+// const useGenres = () => useData<Genre>("/genres");
 
 export default useGenres;
